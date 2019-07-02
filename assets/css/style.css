@@ -345,7 +345,7 @@ footer a:hover {
   text-decoration: none;
   color: #00b1c4;
 }
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 500px) {
 	  .title{
 		  display: none;
 	  }
