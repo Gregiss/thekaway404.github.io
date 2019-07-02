@@ -9,18 +9,6 @@ $(document).ready(function() {
         $(".menu").toggleClass('is-visible');
     });
 
-
-    var movementStrength = 725;
-    var height = movementStrength / $(window).height();
-    var width = movementStrength / $(window).width();
-    $(".landing").mousemove(function(e){
-        var pageX = e.pageX - ($(window).width() / 2);
-        var pageY = e.pageY - ($(window).height() / 2);
-        var newvalueX = width * pageX * -1 - 25;
-        var newvalueY = height * pageY * -1 - 50;
-        $('.landing').css("background-position", newvalueX+"px     "+newvalueY+"px");
-    });
-
     if (window.DeviceOrientationEvent) {
         window.addEventListener("deviceorientation", function () {
             // alert([event.beta, event.gamma]);
@@ -28,6 +16,26 @@ $(document).ready(function() {
             $(".landing").css("background-position-x", 10 * (-event.gamma + 90) * (40/180) - 40 );
         }, true);
     }
-
+	
+	setInterval(function(){
+	var movementStrength = 725;
+    var height = movementStrength / $(window).height();
+    var width = movementStrength / $(window).width();
+	var i = 0;
+	var newvalueX = 0;
+	var newvalueY = 0;
+	if(i == 0){
+		newvalueX += 10;
+		newvalueY += 10;
+		i++;
+	} else if(i >= 10){
+		newvalueX -= 10;
+		newvalueY -= 10;
+		i = 0;
+	}
+    $('.landing').css("background-position", Math.random()+"px     "+newvalueY+"px");
+	console.log("teste");
+	}, 100);
+	
 
 });
